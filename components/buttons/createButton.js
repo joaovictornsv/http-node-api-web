@@ -15,7 +15,7 @@ createButton.setCSS({
 });
 
 createButton.setOnclick(() => {
-  window.location.assign('/create')
+  window.location.assign('/create.html')
 })
 
 export default createButton;

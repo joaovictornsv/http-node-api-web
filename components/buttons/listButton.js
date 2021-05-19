@@ -16,7 +16,7 @@ listButton.setCSS({
 });
 
 listButton.setOnclick(() => {
-  window.location.assign('/users')
+  window.location.assign('/users.html')
 })
 
 export default listButton;

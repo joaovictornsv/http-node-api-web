@@ -1,18 +1,11 @@
-import { makeDiv } from '../../factories/index.js'
+import mainDiv from '../divs/mainDiv.js';
 import groupButtons from '../divs/groupButtons.js'
 import headerMain from '../divs/headerMain.js'
 
-const mainDiv = makeDiv({ className: 'main'})
+function HomePage() {
+  mainDiv.initOnRoot();
+  mainDiv.append(headerMain.component);
+  mainDiv.append(groupButtons.component);
+}
 
-mainDiv.setCSS({
-  minWidth: '100vw',
-  minHeight: '100vh',
-  backgroundColor: '#1a293b',
-  flexDirection: 'column'
-});
-
-mainDiv.append(headerMain.component);
-mainDiv.append(groupButtons.component);
-
-
-export default mainDiv;
+export default HomePage;

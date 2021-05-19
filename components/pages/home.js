@@ -1,6 +1,6 @@
 import { makeDiv } from '../../factories/index.js'
-import groupButtons from './groupButtons.js'
-import headerMain from './headerMain.js'
+import groupButtons from '../divs/groupButtons.js'
+import headerMain from '../divs/headerMain.js'
 
 const mainDiv = makeDiv({ className: 'main'})
 

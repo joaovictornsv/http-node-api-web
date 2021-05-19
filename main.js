@@ -1,4 +1,4 @@
-import mainDiv from './components/divs/mainDiv.js'
+import mainDiv from './components/pages/home.js'
 
 import resetCSS from './utils/reset.js'
 

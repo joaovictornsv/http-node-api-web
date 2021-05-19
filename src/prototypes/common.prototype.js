@@ -4,6 +4,10 @@ HTMLElement.prototype.overwriteCSS = function overwriteCSS(new_css) {
   }
 }
 
+HTMLElement.prototype.setClass = function setClass(new_name) {
+  this.className = new_name;
+}
+
 HTMLElement.prototype.setCSS = function setCSS(new_css) {
   this.overwriteCSS(new_css);
 }

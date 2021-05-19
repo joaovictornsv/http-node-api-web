@@ -1,4 +1,4 @@
-import prototypes from '../utils/prototypes.js'
+import * as prototypes from '../prototypes/index.js'
 
 export { default as makeButton } from './button.factory.js';
 export { default as makeDiv } from './div.factory.js';

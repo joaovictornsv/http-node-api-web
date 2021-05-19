@@ -11,6 +11,13 @@ groupButtons.setCSS({
   flexDirection: 'column'
 });
 
+listButton.setOnclick(() => {
+  window.location.assign('/users.html')
+});
+
+createButton.setOnclick(() => {
+  window.location.assign('/create.html')
+});
 
 groupButtons.append(listButton.component);
 groupButtons.append(createButton.component);

@@ -15,8 +15,4 @@ listButton.setCSS({
   backgroundColor: '#18568b'
 });
 
-listButton.setOnclick(() => {
-  window.location.assign('/users.html')
-})
-
 export default listButton;

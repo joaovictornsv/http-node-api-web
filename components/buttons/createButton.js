@@ -14,4 +14,8 @@ createButton.setCSS({
   backgroundColor: '#2B9197'
 });
 
+createButton.setOnclick(() => {
+  window.location.assign('/create')
+})
+
 export default createButton;

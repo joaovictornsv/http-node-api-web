@@ -1,14 +1,7 @@
-function makeButton(config={}) {
+function makeInput(config={}) {
   let initialPlaceholder = config.placeholder || 'Type here';
-  let initialId = config.id || 'Button';
+  let initialId = config.id || 'input_id';
   let initialType = config.type || 'text';
-
-  let initialCss = {
-    width: '150px',
-    height: '50px',
-    background: 'white',
-    borderRadius: '8px',
-  }
 
   let initialClickCss = {
     border: 'black'
@@ -18,13 +11,17 @@ function makeButton(config={}) {
   setType(initialType)
   setID(initialId);
   setPlaceholder(initialPlaceholder);
-  setCSS(initialCss);
-
+  setMinMax(0, 200);
 
   function setID(new_id) {
     component.id = new_id;
   }
   
+  function setMinMax(min, max) {
+    component.min = min;
+    component.max = max;
+  }
+
   function setType(new_type) {
     component.type = new_type;
   }
@@ -58,4 +55,4 @@ function makeButton(config={}) {
 }
 
 
-export default makeButton;
+export default makeInput;

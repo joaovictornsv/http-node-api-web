@@ -21,8 +21,13 @@ function makeButton(config={}) {
   setCSS(initialCss);
   initialFunc && setOnclick(initialFunc);
 
+
   function setClass(new_name) {
     component.className = new_name;
+  }
+
+  function setOnclick(new_func) {
+    component.onclick = new_func;
   }
 
   function setValue(new_value) {
@@ -52,6 +57,7 @@ function makeButton(config={}) {
     setClass,
     setValue,
     setCSS,
+    setOnclick
   }
 }
 

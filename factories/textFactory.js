@@ -1,6 +1,5 @@
 function makeText(config={}) {
   let initialValue = config.value || `Text ${tag}`;
-  let initialClassName = config.className || null;
   let tag = config.tag;
 
   let initialCss = {
@@ -10,13 +9,9 @@ function makeText(config={}) {
   }
 
   const component = document.createElement(tag);
-  initialClassName && setClass(initialClassName);
   setValue(initialValue)
   setCSS(initialCss);
   
-  function setClass(new_name) {
-    component.className = new_name;
-  }
 
   function setValue(new_value) {
     component.innerText = new_value;
@@ -36,7 +31,6 @@ function makeText(config={}) {
   return {
     component,
     initOn,
-    setClass,
     setCSS,
   }
 }

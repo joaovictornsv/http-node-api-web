@@ -1,6 +1,5 @@
 function makeButton(config={}) {
   let initialValue = config.value || 'Button';
-  let initialClassName = config.className || null;
   let initialFunc = null;
 
   let initialCss = {
@@ -17,14 +16,9 @@ function makeButton(config={}) {
   
   const component = document.createElement('button');
   setValue(initialValue);
-  config.className && setClass(initialClassName);
   setCSS(initialCss);
   initialFunc && setOnclick(initialFunc);
 
-
-  function setClass(new_name) {
-    component.className = new_name;
-  }
 
   function setOnclick(new_func) {
     component.onclick = new_func;
@@ -54,7 +48,6 @@ function makeButton(config={}) {
   return {
     component,
     initOn,
-    setClass,
     setValue,
     setCSS,
     setOnclick

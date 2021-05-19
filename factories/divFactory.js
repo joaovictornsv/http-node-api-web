@@ -41,7 +41,6 @@ function makeDiv(config={}) {
     component,
     initOn,
     append,
-    setClass,
     setCSS,
     initOnRoot
   }

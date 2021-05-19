@@ -1,6 +1,6 @@
 function makeText(config={}) {
   let initialValue = config.value || `Text ${tag}`;
-  let tag = config.tag;
+  let tag = config.tag || 'h1';
 
   let initialCss = {
     fontSize: '14px',

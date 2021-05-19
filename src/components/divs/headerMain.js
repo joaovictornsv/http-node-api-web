@@ -9,7 +9,7 @@ headerMain.setCSS({
   marginBottom: '40px', 
 });
 
-headerMain.append(titleMain.component);
-headerMain.append(subtitleMain.component);
+headerMain.append(titleMain);
+headerMain.append(subtitleMain);
 
 export default headerMain;

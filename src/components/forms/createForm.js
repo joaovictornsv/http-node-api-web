@@ -10,8 +10,8 @@ const nameInput = makeInput({ id: 'input_name', placeholder: 'Nome'});
 const emailInput = makeInput({ id: 'input_name', placeholder: 'Email'});
 const ageInput = makeInput({ id: 'input_name', placeholder: 'Idade', type: 'number'});
 
-createForm.append(nameInput.component);
-createForm.append(emailInput.component);
-createForm.append(ageInput.component);
+createForm.append(nameInput);
+createForm.append(emailInput);
+createForm.append(ageInput);
 
 export default createForm;

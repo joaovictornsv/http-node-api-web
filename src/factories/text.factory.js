@@ -9,30 +9,11 @@ function makeText(config={}) {
   }
 
   const component = document.createElement(tag);
-  setValue(initialValue)
-  setCSS(initialCss);
+  component.innerText = initialValue;
+  component.setCSS(initialCss);
   
 
-  function setValue(new_value) {
-    component.innerText = new_value;
-  }
-
-  function setCSS(new_css) {
-    for (let [key, value] of Object.entries(new_css)) {
-      component.style[key] = value
-    }
-  }
-
-  function initOn(className) {
-    const div = document.getElementsByClassName(className)[0];
-    div.appendChild(component);
-  }
-
-  return {
-    component,
-    initOn,
-    setCSS,
-  }
+  return component;
 }
 
 

@@ -8,8 +8,8 @@ resetCSS();
 
 function HomePage() {
   mainDiv.initOnRoot();
-  mainDiv.append(headerMain.component);
-  mainDiv.append(groupButtons.component);
+  mainDiv.append(headerMain);
+  mainDiv.append(groupButtons);
 }
 
 export default HomePage();

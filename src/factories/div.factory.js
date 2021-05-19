@@ -10,40 +10,10 @@ function makeDiv(config={}) {
   }
 
   const component = document.createElement('div');
-  config.className && setClass(initialClassName);
-  setCSS(initialCss);
-  
-  function setClass(new_name) {
-    component.className = new_name;
-  }
+  config.className && component.setClass(initialClassName);
+  component.setCSS(initialCss);
 
-  function setCSS(new_css) {
-    for (let [key, value] of Object.entries(new_css)) {
-      component.style[key] = value
-    }
-  }
-
-  function append(element) {
-    component.appendChild(element);
-  }
-
-  function initOn(className) {
-    const div = document.getElementsByClassName(className)[0];
-    div.appendChild(component);
-  }
-
-  function initOnRoot() {
-    const div = document.getElementById('root');
-    div.appendChild(component);
-  }
-
-  return {
-    component,
-    initOn,
-    append,
-    setCSS,
-    initOnRoot
-  }
+  return component;
 }
 
 

@@ -6,7 +6,7 @@ resetCSS();
 
 function CreatePage() {
   mainDiv.initOnRoot();
-  mainDiv.append(createForm.component);
+  mainDiv.append(createForm);
 }
 
 export default CreatePage();

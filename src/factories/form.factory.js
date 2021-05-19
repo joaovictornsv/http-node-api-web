@@ -1,5 +1,5 @@
 function makeForm(config={}) {
-  let initialClassName = config.className;
+  let initialClassName = config.className || 'myForm';
   let initialFunc = null;
 
   let initialCss = {
@@ -11,40 +11,11 @@ function makeForm(config={}) {
   }
 
   const component = document.createElement('form');
-  config.className && setClass(initialClassName);
-  initialFunc && setOnSubmit(initialFunc);
-  setCSS(initialCss);
+  config.className && component.setClass(initialClassName);
+  initialFunc && component.setOnSubmit(initialFunc);
+  component.setCSS(initialCss);
 
-  function setOnSubmit(new_func) {
-    component.onsubmit = new_func;
-  }
-
-  function setClass(new_name) {
-    component.className = new_name;
-  }
-
-  function setCSS(new_css) {
-    for (let [key, value] of Object.entries(new_css)) {
-      component.style[key] = value
-    }
-  }
-
-  function append(element) {
-    component.appendChild(element);
-  }
-
-  function initOn(className) {
-    const div = document.getElementsByClassName(className)[0];
-    div.appendChild(component);
-  }
-
-  return {
-    component,
-    initOn,
-    setOnSubmit,
-    append,
-    setCSS,
-  }
+  return component;
 }
 
 export default makeForm;

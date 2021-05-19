@@ -2,7 +2,6 @@ import { makeButton } from '../../factories/index.js'
 
 const listButton = makeButton({ value: 'Listar usuários', className: 'list-button' });
 
-listButton.setValue('Lista');
 listButton.setCSS({
   backgroundColor: '#3490de',
   borderRadius: '5px',

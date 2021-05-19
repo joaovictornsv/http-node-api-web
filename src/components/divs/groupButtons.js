@@ -19,8 +19,8 @@ createButton.setOnclick(() => {
   window.location.assign('/create.html')
 });
 
-groupButtons.append(listButton.component);
-groupButtons.append(createButton.component);
+groupButtons.append(listButton);
+groupButtons.append(createButton);
 
 
 export default groupButtons;

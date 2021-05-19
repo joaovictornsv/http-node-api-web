@@ -1,6 +1,10 @@
 import { makeForm, makeInput, makeButton } from '../../factories/index.js';
 
+const params = new URLSearchParams(document.location.search.substring(1));
+
 const createForm = makeForm();
+
+const nameValue = params.get('name') || '';
 
 const inputCSS = {
   width: '250px',
@@ -24,17 +28,17 @@ createForm.setOnSubmit((e) => {
   e.preventDefault();
 })
 
-const nameInput = makeInput({ id: 'input_name', placeholder: 'Nome'});
-const emailInput = makeInput({ id: 'input_email', placeholder: 'Email'});
-const ageInput = makeInput({ id: 'input_age', placeholder: 'Idade', type: 'number'});
-const cityInput = makeInput({ id: 'input_city', placeholder: 'Cidade'});
+const nameInput = makeInput({ id: 'input_name', placeholder: 'Nome', value: nameValue});
+const emailInput = makeInput({ id: 'input_email', placeholder: 'Email', value: 'joao@email.com'});
+const ageInput = makeInput({ id: 'input_age', placeholder: 'Idade', type: 'number', value: 19});
+const cityInput = makeInput({ id: 'input_city', placeholder: 'Cidade', value: 'Campina Grande'});
 
 nameInput.setCSS(inputCSS, inputClickCSS);
 emailInput.setCSS(inputCSS, inputClickCSS);
 ageInput.setCSS(inputCSS, inputClickCSS);
 cityInput.setCSS(inputCSS, inputClickCSS);
 
-const submitButton = makeButton({ value: 'Criar', type: 'submit' });
+const submitButton = makeButton({ value: 'Salvar', type: 'submit' });
 submitButton.setCSS({
   backgroundColor: '#3fc1c9',
   border: 'none',

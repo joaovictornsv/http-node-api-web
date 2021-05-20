@@ -9,26 +9,25 @@ import listUsers from '../components/divs/listUsers.js';
 
 resetCSS();
 
-const users = [
-  {
-    name: 'João Victor',
-    email: 'joao@email.com',
-    age: 19,
-    city: 'Campina Grande'
-  },
-  {
-    name: 'Vinicius',
-    email: 'vini@email.com',
-    age: 19,
-    city: 'Esperança'
-  },
-  {
-    name: 'Lucas Bivar',
-    email: 'bivar@email.com',
-    age: 18,
-    city: 'João Pessoa'
-  }
-]
+
+const getUsers = () => {
+  const xhr = new XMLHttpRequest();
+  return new Promise((resolve, reject) => {
+    xhr.open('GET', 'http://localhost:3333/users', true);
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+        else {
+          reject('Erro na requisição');
+        }
+      }
+    }
+})
+}
 
 function renderUsers(users) {
   users.forEach(user => {
@@ -137,8 +136,8 @@ function renderUsers(users) {
 }
 
 
-function renderNotFoundUsers(){
-  let message = makeText({tag: 'span', value: 'Sem usuários!'});
+function renderNotFoundUsers(text=''){
+  let message = makeText({tag: 'span', value: text});
   message.setCSS({
     color: 'white',
     fontSize: '22px',
@@ -147,13 +146,44 @@ function renderNotFoundUsers(){
   listUsers.append(message);
 }
 
-function CreatePage() {
+async function CreatePage() {
   mainDivList.initOnRoot();
   mainDivList.append(headerList);
   mainDivList.append(listUsers);
   
-  renderUsers(users);
-  // renderNotFoundUsers();
+  await getUsers()
+  .then((response) => {
+    if (response.length > 0) {
+      renderUsers(response);
+    } else {
+      renderNotFoundUsers('Sem usuários')
+    }
+  })
+  .catch(() =>{
+    renderNotFoundUsers('Erro na requisição')
+  });
+
+  const backButton = makeButton({ value: 'Voltar' });
+  backButton.setCSS({
+    backgroundColor: '#3fc1c9',
+    border: 'none',
+    borderRadius: '5px',
+    color: 'black',
+    fontSize: '18px',
+    marginTop: '20px',
+    transition: 'background-color 0.2s',
+    width: '150px',
+    height: '50px',
+  }, {
+    backgroundColor: '#2B9197'
+  });
+
+  backButton.setOnclick(() => {
+    window.location.assign('/index.html')
+  })
+
+  listUsers.append(backButton);
+  
 }
 
 export default CreatePage();

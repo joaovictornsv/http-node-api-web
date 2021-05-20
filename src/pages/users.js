@@ -205,7 +205,7 @@ async function CreatePage() {
     borderRadius: '5px',
     color: 'black',
     fontSize: '18px',
-    marginTop: '20px',
+    margin: '20px 0',
     transition: 'background-color 0.2s',
     width: '150px',
     height: '50px',

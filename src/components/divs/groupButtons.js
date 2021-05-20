@@ -17,6 +17,8 @@ listButton.setCSS({
   border: 'none',
   color: 'white',
   fontSize: '18px',
+  width: '150px',
+  height: '50px',
 
   transition: 'background-color 0.2s'
 }, {
@@ -36,6 +38,8 @@ createButton.setCSS({
   borderRadius: '5px',
   color: 'white',
   fontSize: '18px',
+  width: '150px',
+  height: '50px',
 
   transition: 'background-color 0.2s'
 }, {

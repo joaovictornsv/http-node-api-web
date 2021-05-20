@@ -45,7 +45,9 @@ submitButton.setCSS({
   color: 'white',
   fontSize: '18px',
   marginTop: '20px',
-  transition: 'background-color 0.2s'
+  transition: 'background-color 0.2s',
+  width: '150px',
+  height: '50px',
 }, {
   backgroundColor: '#2B9197'
 });

@@ -10,6 +10,26 @@ const nameValue = params.get('name') || '';
 const ageValue = params.get('age') || '';
 const emailValue = params.get('email') || '';
 const cityValue = params.get('city') || '';
+const idValue = params.get('id') || '';
+
+const updateUser = (query) => {
+  const xhr = new XMLHttpRequest();
+  return new Promise((resolve, reject) => {
+    xhr.open('PUT', `http://localhost:3333/users/${idValue}/data?${query}`, true);
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+        else {
+          reject('Erro na requisição');
+        }
+      }
+    }
+})
+}
 
 const inputCSS = {
   width: '250px',
@@ -29,8 +49,24 @@ createForm.setCSS({
   flexDirection: 'column'
 })
 
-createForm.setOnSubmit((e) => {
+createForm.setOnSubmit(async (e) => {
   e.preventDefault();
+
+  const newName = document.getElementById('input_name').value;
+  const newEmail = document.getElementById('input_email').value;
+  const newAge = document.getElementById('input_age').value;
+  const newCity = document.getElementById('input_city').value;
+
+  const query = `name=${newName}&email=${newEmail}&age=${newAge}&city=${newCity}`;
+
+  await updateUser(query)
+    .then(() => {
+      alert(`Usuário '${newName}' atualizado!`);
+      window.location.assign('/users.html');
+    })
+    .catch(() =>{
+      alert('Erro ao atualizar')
+    });
 })
 
 const nameInput = makeInput({ id: 'input_name', placeholder: 'Nome', value: nameValue});

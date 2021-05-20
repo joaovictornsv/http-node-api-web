@@ -1,0 +1,12 @@
+{
+  "name": "http-node-api-web",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/joaovictornsv/http-node-api-web.git",
+  "author": "Joao Victor Negreiros <joaovictornsv@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "type": "module"
+}

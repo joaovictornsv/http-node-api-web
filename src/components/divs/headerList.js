@@ -1,4 +1,5 @@
-import { makeDiv, makeText } from '../../factories/index.js'
+import makeDiv from '../../factories/div.factory.js';
+import makeText from '../../factories/text.factory.js';
 
 const headerList = makeDiv({})
 

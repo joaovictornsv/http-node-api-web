@@ -1,4 +1,4 @@
-import { makeDiv } from '../../factories/index.js'
+import makeDiv from '../../factories/div.factory.js';
 
 const listUsers = makeDiv({ className: 'main'})
 

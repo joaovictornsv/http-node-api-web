@@ -1,4 +1,7 @@
-import { makeForm, makeInput, makeButton } from '../../factories/index.js';
+import makeForm from '../../factories/form.factory.js';
+import makeInput from '../../factories/input.factory.js';
+import makeButton from '../../factories/button.factory.js';
+
 
 const createForm = makeForm();
 

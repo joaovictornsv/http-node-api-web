@@ -1,6 +1,7 @@
-import { makeDiv, makeButton } from '../../factories/index.js'
+import makeDiv from '../../factories/div.factory.js';
+import makeButton from '../../factories/button.factory.js';
 
-const groupButtons = makeDiv({ className: 'group-buttons'})
+const groupButtons = makeDiv({ className: 'group-buttons'});
 
 groupButtons.setCSS({
   height: '160px',

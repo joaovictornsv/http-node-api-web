@@ -1,4 +1,7 @@
-import { makeButton, makeDiv, makeText } from '../factories/index.js'
+import makeDiv from '../factories/div.factory.js';
+import makeButton from '../factories/button.factory.js';
+import makeText from '../factories/text.factory.js';
+
 import mainDivList from '../components/divs/mainDivList.js';
 import resetCSS from '../utils/reset.js'
 import headerList from '../components/divs/headerList.js'

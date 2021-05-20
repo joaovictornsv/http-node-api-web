@@ -1,3 +1,5 @@
+import buttonPrototype from '../prototypes/button.prototype.js'
+
 function makeButton(config={}) {
   let initialValue = config.value || 'Button';
   let initialFunc = null;

@@ -1,3 +1,6 @@
+import common from '../prototypes/common.prototype.js'
+import div from '../prototypes/div.prototype.js'
+
 function makeDiv(config={}) {
   let initialClassName = config.className;
 

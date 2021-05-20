@@ -1,3 +1,5 @@
+import formPrototype from '../prototypes/form.prototype.js'
+
 function makeForm(config={}) {
   let initialClassName = config.className || 'myForm';
   let initialFunc = null;

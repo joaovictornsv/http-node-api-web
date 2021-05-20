@@ -1,3 +1,5 @@
+import inputPrototype from '../prototypes/input.prototype.js'
+
 function makeInput(config={}) {
   let initialPlaceholder = config.placeholder || 'Type here';
   let initialValue = config.value || null;

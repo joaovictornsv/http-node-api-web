@@ -71,6 +71,21 @@ function CreatePage() {
       justifyContent: 'space-between',
       flexDirection: 'row',
     });
+
+    let seeButton = makeButton({ value: 'Ver' });
+
+    seeButton.setCSS({
+      backgroundColor: '#227FCE',
+      borderRadius: '5px',
+      border: 'none',
+      color: 'white',
+      fontSize: '14px',
+      padding: '10px 15px',
+      transition: 'background-color 0.2s'
+    }, {
+      backgroundColor: '#1A619E'
+    });
+    
     let editButton = makeButton({ value: 'Editar' });
     editButton.setCSS({
       backgroundColor: '#21DEC1',
@@ -88,19 +103,6 @@ function CreatePage() {
       window.location.assign(`/edit.html?name=${user.name}&age=${user.age}&email=${user.email}&city=${user.city}`)
     });
 
-    let seeButton = makeButton({ value: 'Ver' });
-
-    seeButton.setCSS({
-      backgroundColor: '#227FCE',
-      borderRadius: '5px',
-      border: 'none',
-      color: 'white',
-      fontSize: '14px',
-      padding: '10px 15px',
-      transition: 'background-color 0.2s'
-    }, {
-      backgroundColor: '#1A619E'
-    });
 
     let deleteButton = makeButton({ value: 'Deletar' });
 

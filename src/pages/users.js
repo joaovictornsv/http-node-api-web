@@ -38,8 +38,9 @@ function CreatePage() {
   users.forEach(user => {
     let card = makeDiv();
     card.setCSS({
-      width: '300px',
+      width: '450px',
       padding: '10px',
+      borderBottom: '1px solid #cecece',
     });
 
     let groupText = makeDiv();
@@ -51,12 +52,15 @@ function CreatePage() {
     let name = makeText({tag: 'span', value: user.name});
     name.setCSS({
       color: 'white',
-      fontSize: '18px',
+      fontSize: '20px',
+      fontWeight: 'bold',
+      marginBottom: '4px'
     });
 
     let email = makeText({tag: 'span', value: user.email});
     email.setCSS({
-      color: 'white'
+      color: 'white',
+      fontSize: '16px'
     });
 
     groupText.append(name, email);
@@ -64,10 +68,21 @@ function CreatePage() {
 
     let groupButton = makeDiv();
     groupButton.setCSS({
-      alignItems: 'space-between',
+      justifyContent: 'space-between',
       flexDirection: 'row',
     });
     let editButton = makeButton({ value: 'Editar' });
+    editButton.setCSS({
+      backgroundColor: '#21DEC1',
+      borderRadius: '5px',
+      border: 'none',
+      color: 'black',
+      fontSize: '14px',
+      padding: '10px 15px',
+      transition: 'background-color 0.2s'
+    }, {
+      backgroundColor: '#1AAD97'
+    });
 
     editButton.setOnclick(() => {
       window.location.assign(`/edit.html?name=${user.name}&age=${user.age}&email=${user.email}&city=${user.city}`)
@@ -75,11 +90,37 @@ function CreatePage() {
 
     let seeButton = makeButton({ value: 'Ver' });
 
+    seeButton.setCSS({
+      backgroundColor: '#227FCE',
+      borderRadius: '5px',
+      border: 'none',
+      color: 'white',
+      fontSize: '14px',
+      padding: '10px 15px',
+      transition: 'background-color 0.2s'
+    }, {
+      backgroundColor: '#1A619E'
+    });
+
     let deleteButton = makeButton({ value: 'Deletar' });
+
+    deleteButton.setCSS({
+      backgroundColor: '#e23e57',
+      borderRadius: '5px',
+      border: 'none',
+      color: 'white',
+      fontSize: '14px',
+      padding: '10px 15px',
+      transition: 'background-color 0.2s'
+    }, {
+      backgroundColor: '#BA1C34'
+    });
+
     deleteButton.setOnclick(() => {
-      let sure = confirm('Tem certeza que deseja deletar?');
+      let sure = confirm(`Tem certeza que deseja deletar '${user.name}'?`);
 
       if (sure) {
+        alert(`Usuário '${user.name}' deletado!`)
         window.location.reload()
       }
     });

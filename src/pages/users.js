@@ -13,6 +13,7 @@ resetCSS();
 const getUsers = () => {
   const xhr = new XMLHttpRequest();
   return new Promise((resolve, reject) => {
+    try {
     xhr.open('GET', 'http://localhost:3333/users', true);
     xhr.send();
 
@@ -21,10 +22,15 @@ const getUsers = () => {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.responseText));
         }
-        else {
+        if (xhr.responseText) {
+          reject(JSON.parse(xhr.responseText).error);
+        } else {
           reject('Erro na requisição');
         }
       }
+    }
+    }catch(err) {
+      alert(err)
     }
 })
 }
@@ -32,6 +38,7 @@ const getUsers = () => {
 const deleteUser = (id) => {
   const xhr = new XMLHttpRequest();
   return new Promise((resolve, reject) => {
+    try {
     xhr.open('DELETE', `http://localhost:3333/users/${id}`, true);
     xhr.send();
 
@@ -41,10 +48,13 @@ const deleteUser = (id) => {
           resolve(JSON.parse(xhr.responseText));
         }
         else {
-          reject('Erro na requisição');
+          reject(JSON.parse(xhr.responseText).error);
         }
       }
     }
+  } catch(err) {
+    renderNotFoundUsers(err)
+  }
 })
 }
 
@@ -145,8 +155,8 @@ function renderUsers(users) {
             alert(`Usuário '${user.name}' deletado!`);
             window.location.reload()
         })
-        .catch(() =>{
-          alert('Erro na deletar')
+        .catch((err) =>{
+          alert(err)
         });;
       }
     });

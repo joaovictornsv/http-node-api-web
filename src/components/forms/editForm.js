@@ -4,7 +4,7 @@ import makeButton from '../../factories/button.factory.js';
 
 const params = new URLSearchParams(document.location.search.substring(1));
 
-const createForm = makeForm();
+const editForm = makeForm();
 
 const nameValue = params.get('name') || '';
 const ageValue = params.get('age') || '';
@@ -15,6 +15,7 @@ const idValue = params.get('id') || '';
 const updateUser = (query) => {
   const xhr = new XMLHttpRequest();
   return new Promise((resolve, reject) => {
+    try {
     xhr.open('PUT', `http://localhost:3333/users/${idValue}/data?${query}`, true);
     xhr.send();
 
@@ -23,12 +24,17 @@ const updateUser = (query) => {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.responseText));
         }
-        else {
+        if (xhr.responseText) {
+          reject(JSON.parse(xhr.responseText).error);
+        } else {
           reject('Erro na requisição');
         }
       }
     }
-})
+    }catch(err) {
+      alert(err)
+    }
+  })
 }
 
 const inputCSS = {
@@ -45,11 +51,11 @@ const inputClickCSS = {
   border: '2px solid #3fc1c9'
 }
 
-createForm.setCSS({
+editForm.setCSS({
   flexDirection: 'column'
 })
 
-createForm.setOnSubmit(async (e) => {
+editForm.setOnSubmit(async (e) => {
   e.preventDefault();
 
   const newName = document.getElementById('input_name').value;
@@ -64,8 +70,8 @@ createForm.setOnSubmit(async (e) => {
       alert(`Usuário '${newName}' atualizado!`);
       window.location.assign('/users.html');
     })
-    .catch(() =>{
-      alert('Erro ao atualizar')
+    .catch((err) =>{
+      alert(err)
     });
 })
 
@@ -94,10 +100,10 @@ submitButton.setCSS({
   backgroundColor: '#2B9197'
 });
 
-createForm.append(nameInput);
-createForm.append(emailInput);
-createForm.append(ageInput);
-createForm.append(cityInput);
-createForm.append(submitButton);
+editForm.append(nameInput);
+editForm.append(emailInput);
+editForm.append(ageInput);
+editForm.append(cityInput);
+editForm.append(submitButton);
 
-export default createForm;
+export default editForm;

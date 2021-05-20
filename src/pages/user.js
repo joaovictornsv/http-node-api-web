@@ -16,6 +16,7 @@ const idValue = params.get('id');
 const getUser = (id) => {
   const xhr = new XMLHttpRequest();
   return new Promise((resolve, reject) => {
+    try {
     xhr.open('GET', `http://localhost:3333/users/${id}`, true);
     xhr.send();
 
@@ -24,11 +25,16 @@ const getUser = (id) => {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.responseText));
         }
-        else {
+        if (xhr.responseText) {
+          reject(JSON.parse(xhr.responseText).error);
+        } else {
           reject('Erro na requisição');
         }
       }
     }
+  } catch(err) {
+    alert(err)
+  }
 })
 }
 

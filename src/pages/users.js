@@ -29,6 +29,25 @@ const getUsers = () => {
 })
 }
 
+const deleteUser = (id) => {
+  const xhr = new XMLHttpRequest();
+  return new Promise((resolve, reject) => {
+    xhr.open('DELETE', `http://localhost:3333/users/${id}`, true);
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+        else {
+          reject('Erro na requisição');
+        }
+      }
+    }
+})
+}
+
 function renderUsers(users) {
   users.forEach(user => {
     let card = makeDiv();
@@ -99,7 +118,7 @@ function renderUsers(users) {
     });
 
     editButton.setOnclick(() => {
-      window.location.assign(`/edit.html?name=${user.name}&age=${user.age}&email=${user.email}&city=${user.city}`)
+      window.location.assign(`/edit.html?name=${user.name}&age=${user.age}&email=${user.email}&city=${user.city}&id=${user.id}`)
     });
 
 
@@ -117,12 +136,18 @@ function renderUsers(users) {
       backgroundColor: '#BA1C34'
     });
 
-    deleteButton.setOnclick(() => {
+    deleteButton.setOnclick(async () => {
       let sure = confirm(`Tem certeza que deseja deletar '${user.name}'?`);
 
       if (sure) {
-        alert(`Usuário '${user.name}' deletado!`)
-        window.location.reload()
+        await deleteUser(user.id)
+        .then(() => {
+            alert(`Usuário '${user.name}' deletado!`);
+            window.location.reload()
+        })
+        .catch(() =>{
+          alert('Erro na deletar')
+        });;
       }
     });
 

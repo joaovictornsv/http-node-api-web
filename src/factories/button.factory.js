@@ -6,8 +6,6 @@ function makeButton(config={}) {
   let initialType = config.type || null;
 
   let initialCss = {
-    width: '150px',
-    height: '50px',
     background: 'white',
     borderRadius: '8px',
     cursor: 'pointer',

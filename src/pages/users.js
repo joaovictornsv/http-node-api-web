@@ -85,7 +85,11 @@ function CreatePage() {
     }, {
       backgroundColor: '#1A619E'
     });
-    
+
+    seeButton.setOnclick(() => {
+      window.location.assign(`/user.html?id=${user.id}`)
+    });
+
     let editButton = makeButton({ value: 'Editar' });
     editButton.setCSS({
       backgroundColor: '#21DEC1',

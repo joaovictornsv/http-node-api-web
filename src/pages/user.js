@@ -13,13 +13,25 @@ const params = new URLSearchParams(document.location.search.substring(1));
 const idValue = params.get('id');
 
 
-const user = 
-  {
-    name: 'João Victor',
-    email: 'joao@email.com',
-    age: 19,
-    city: 'Campina Grande'
-  }
+const getUser = (id) => {
+  const xhr = new XMLHttpRequest();
+  return new Promise((resolve, reject) => {
+    xhr.open('GET', `http://localhost:3333/users/${id}`, true);
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+        else {
+          reject('Erro na requisição');
+        }
+      }
+    }
+})
+}
+
 
 function renderUserInfo(user) {
   let card = makeDiv({ className: 'groupFields'});
@@ -131,8 +143,8 @@ function renderUserInfo(user) {
 }
 
 
-function renderNotFoundUser(){
-  let message = makeText({tag: 'span', value: 'Usuário não encontrado!'});
+function renderNotFoundUser(text){
+  let message = makeText({tag: 'span', value: text});
   message.setCSS({
     color: 'white',
     fontSize: '22px',
@@ -141,13 +153,18 @@ function renderNotFoundUser(){
   listUsers.append(message);
 }
 
-function CreatePage() {
+async function UserPage() {
   mainDivList.initOnRoot();
   mainDivList.append(headerUser);
   mainDivList.append(listUsers);
   
-  renderUserInfo(user);
-  // renderNotFoundUser();
+  await getUser(idValue)
+  .then((response) => {
+    renderUserInfo(response);
+  })
+  .catch(() =>{
+    renderNotFoundUser('Erro na requisição do usuário')
+  });
 
   const backButton = makeButton({ value: 'Voltar' });
   backButton.setCSS({
@@ -172,4 +189,4 @@ function CreatePage() {
 
 }
 
-export default CreatePage();
+export default UserPage();

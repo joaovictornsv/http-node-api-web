@@ -30,11 +30,7 @@ const users = [
   }
 ]
 
-
-function CreatePage() {
-  mainDivList.initOnRoot();
-  mainDivList.append(headerList);
-  mainDivList.append(listUsers);
+function renderUsers(users) {
   users.forEach(user => {
     let card = makeDiv();
     card.setCSS({
@@ -138,7 +134,26 @@ function CreatePage() {
 
     listUsers.append(card);
   })
+}
 
+
+function renderNotFoundUsers(){
+  let message = makeText({tag: 'span', value: 'Sem usuários!'});
+  message.setCSS({
+    color: 'white',
+    fontSize: '22px',
+    margin: '40px 0 60px'
+  });
+  listUsers.append(message);
+}
+
+function CreatePage() {
+  mainDivList.initOnRoot();
+  mainDivList.append(headerList);
+  mainDivList.append(listUsers);
+  
+  renderUsers(users);
+  // renderNotFoundUsers();
 }
 
 export default CreatePage();

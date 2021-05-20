@@ -6,7 +6,7 @@
   "author": "Joao Victor Negreiros <joaovictornsv@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
   "type": "module"
 }

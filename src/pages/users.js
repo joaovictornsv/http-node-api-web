@@ -3,9 +3,11 @@ import makeButton from '../factories/button.factory.js';
 import makeText from '../factories/text.factory.js';
 
 import mainDivList from '../components/divs/mainDivList.js';
-import resetCSS from '../utils/reset.js'
-import headerList from '../components/divs/headerList.js'
+import resetCSS from '../utils/reset.js';
+import headerList from '../components/divs/headerList.js';
 import listUsers from '../components/divs/listUsers.js';
+
+resetCSS();
 
 const users = [
   {
@@ -28,7 +30,6 @@ const users = [
   }
 ]
 
-resetCSS();
 
 function CreatePage() {
   mainDivList.initOnRoot();

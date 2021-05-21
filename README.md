@@ -1,16 +1,16 @@
 <div align="center">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="100" /><br/><br/>
-    <h2>Projeto HTML</h2>
+    <h3>Projeto HTML</h3>
     <h1>
         100% Javascript
     </h1>
     <h4>
         Front-end feito "sem HTML"
-    </h4><br/>   
+    </h4> 
     <img  alt="Dependencies"  src=https://img.shields.io/badge/dependecies-0-brightgreen.svg?style=flat-square">
     <img  alt="Language Top"  src="https://img.shields.io/github/languages/top/joaovictornsv/http-node-api-web">
      <a  href="https://github.com/joaovictornsv/http-node-api-web/blob/master/LICENSE">
-        <img  alt="License"  src="https://img.shields.io/github/license/joaovictornsv/http-node-api-web.svg">
+        <img  alt="License"  src="https://img.shields.io/github/license/joaovictornsv/http-node-api-web">
     </a>
 </div>
 

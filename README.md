@@ -158,7 +158,7 @@ function HomePage() {
   header.append(subtitle);
 }
 
-export default title;
+export default HomePage;
 ```
 
   </details>

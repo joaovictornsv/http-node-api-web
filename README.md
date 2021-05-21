@@ -192,7 +192,7 @@ Além de aprender como funcionam as closures, também fixei mais alguns conceito
 - Tratamento de erros com AJAX
 - Correção de erros de CORS da API
 - Uso das classes `URL` e `URLSearchParams`
-- Organização de código
+- Organização de código no geral
 
 ---
 

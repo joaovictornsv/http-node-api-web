@@ -68,13 +68,13 @@ button.style.backgroundColor = 'blue'
 
 // ✅ COM PROTOTYPE
 
-// Criando uma função nova no prototype da tag 'h1'
+// Criando uma função nova no prototype da tag 'button'
 HTMLButtonElement.prototype.setCSS = function setCSS(new_css) {
   // add CSS in element
 }
 
 // Usando a função criada
-text.setCSS({ color: 'blue'})
+button.setCSS({ color: 'blue'})
 
 ```
   </details>

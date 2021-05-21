@@ -233,6 +233,10 @@ $ yarn start
 ➜ Use 'Live Server' to run (Visual Studio Code Extension)
 ```
 
+<div align="center">
+    <img src="https://i.imgur.com/XMyEPXc.gif"/>
+</div>
+
 ---
 
 ### :pencil2: Author 

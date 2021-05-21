@@ -32,137 +32,139 @@ O objetivo dessa aplicação era criar um frontend feito totalmente em Javascrip
 
 ---
 
-### ➜ API
+### ➡ API
 A API utilizada é feita totalmente em NodeJS, ou seja, todo esse projeto (frontend e backend) foi feito sem nenhuma dependência externa.
 <br/><br/>
 Para ver mais detalhes de como usar a API acesse o repositório: [joaovictornsv/http-node-api](https://github.com/joaovictornsv/http-node-api)
 
 ---
 
-### ➜ Arquitetura
+### ➡ Arquitetura
 Para gerar todos os componentes necessários criei uma arquitetura que se resume basicamente em:
 - Prototypes
 - Factories
 - Components
 - Pages
 
-<br/>
 
-- ### Prototypes
+### Prototypes
   Os *prototypes* são adições nos métodos dos elementos HTML que fiz para facilitar a criação de componentes estilizados.
 
-  <br><br>
+  <br>
 
   <details>
     <summary>
       Um exemplo de como um prototype funciona:
     </summary>
 
-    ```js
-    // Mudando a cor de um botao
-    const button = document.getElementById('btn')
+```javascript
+// Mudando a cor de um botao
+const button = document.getElementById('btn')
 
-    // ❌ SEM PROTOTYPE
-    button.style.backgroundColor = 'blue'
+// ❌ SEM PROTOTYPE
+button.style.backgroundColor = 'blue'
 
 
-    // ✅ COM PROTOTYPE
+// ✅ COM PROTOTYPE
 
-    // Criando uma função nova no prototype da tag 'h1'
-    HTMLButtonElement.prototype.setCSS = function setCSS(new_css) {
-      // add CSS in element
-    }
+// Criando uma função nova no prototype da tag 'h1'
+HTMLButtonElement.prototype.setCSS = function setCSS(new_css) {
+  // add CSS in element
+}
 
-    // Usando a função criada
-    text.setCSS({ color: 'blue'})
+// Usando a função criada
+text.setCSS({ color: 'blue'})
 
-    ```
-  </details><br/>
+```
+  </details>
 
-- ### Factories
+### Factories
   As *factories* são **closures**, ou seja, funções que "se lembram" do escopo de quando foram criadas. Funcionam semelhante a uma espécie de classe. Não escolhi trabalhar com classes para poder pôr em prática o que havia estudado sobre as closures. Caso deseje ler mais sobre closures [clique aqui](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures).
-  <br><br>
+  
+  <br>
 
   <details>
     <summary>
       Um exemplo de como uma closure funciona:
     </summary>
       
-    ```js
-    // Cria um botão escrito 'Botão 1'
-    const button1 = makeButton({ value: 'Botão 1' });
+```javascript
+// Cria um botão escrito 'Botão 1'
+const button1 = makeButton({ value: 'Botão 1' });
 
-    // Cria outro botão escrito 'Botão 2'
-    const button2 = makeButton({ value: 'Botão 2' });
-
-
-
-    // Muda a cor do texto do Botão 1 para azul
-    button1.setCSS({ color: 'blue' })
-
-    // Muda a cor do texto do Botão 1 para Vermelho
-    button1.setCSS({ color: 'red' });
+// Cria outro botão escrito 'Botão 2'
+const button2 = makeButton({ value: 'Botão 2' });
 
 
-    // Ambos os botões tem seus escopos próprios
-    ```
 
-  </details><br>
+// Muda a cor do texto do Botão 1 para azul
+button1.setCSS({ color: 'blue' })
 
-  - ### Components
+// Muda a cor do texto do Botão 1 para Vermelho
+button1.setCSS({ color: 'red' });
+
+
+// Ambos os botões tem seus escopos próprios
+```
+
+  </details>
+
+### Components
   Os *components* são os elementos HTML já criados e estilizados prontos para uso (assim como ocorre com o [styled-components](https://styled-components.com/)).
-  <br><br>
+  
+  <br>
 
   <details>
     <summary>
       Um exemplo de como um component funciona:
     </summary>
       
-    ```js
-    // Criação de um elemento 'h1'
-    const title = makeText({tag: 'h1', value: 'Título Princiapl'});
+```javascript
+// Criação de um elemento 'h1'
+const title = makeText({tag: 'h1', value: 'Título Princiapl'});
 
-    // Estilização do elemento
-    titleMain.setCSS({
-      fontSize: '22px',
-      color: 'black',
-      fontFamily: 'Arial, sans-serif'
-    });
+// Estilização do elemento
+titleMain.setCSS({
+  fontSize: '22px',
+  color: 'black',
+  fontFamily: 'Arial, sans-serif'
+});
 
-    export default title;
-    ```
+export default title;
+```
 
-  </details><br>
+  </details>
 
-  - ### Pages
+### Pages
   As *pages* são os conjuntos de componentes organizados para formar uma página completa.
-  <br><br>
+  
+  <br>
 
   <details>
     <summary>
       Um exemplo de como uma página funciona:
     </summary>
       
-    ```js
-    // Criação de um elemento 'h1']
-    import header from './components/header.js'
-    import title from './components/title.js'
-    import subtitle from './components/subtitle.js'
+```javascript
+// Criação de um elemento 'h1'
+import header from './components/header.js'
+import title from './components/title.js'
+import subtitle from './components/subtitle.js'
 
-    function HomePage() {
-      // Adicionando components na div 'header'
-      header.append(title);
-      header.append(subtitle);
-    }
+function HomePage() {
+  // Adicionando components na div 'header'
+  header.append(title);
+  header.append(subtitle);
+}
 
-    export default title;
-    ```
+export default title;
+```
 
-  </details><br>
+  </details>
 
 ---
 
-### ➜ Funcionalidades ✔️
+### ➡ Funcionalidades ✔️
 A aplicação realiza o CRUD da API (Create, Read, Update and Delete) e possui as seguintes funcionalidades:
 
 #### Funções principais:
@@ -221,7 +223,7 @@ $ yarn start
 
 #### 🔵 FRONT-END
 
-# Back to this repository and 
+# Back to this repository
 
 # Generate HTML files
 $ yarn start

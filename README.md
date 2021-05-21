@@ -61,6 +61,7 @@ Para gerar todos os componentes necessários criei uma arquitetura que se resume
 // Mudando a cor de um botao
 const button = document.getElementById('btn')
 
+
 // ❌ SEM PROTOTYPE
 button.style.backgroundColor = 'blue'
 

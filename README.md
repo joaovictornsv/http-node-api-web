@@ -101,8 +101,8 @@ const button2 = makeButton({ value: 'Botão 2' });
 // Muda a cor do texto do Botão 1 para azul
 button1.setCSS({ color: 'blue' })
 
-// Muda a cor do texto do Botão 1 para Vermelho
-button1.setCSS({ color: 'red' });
+// Muda a cor do texto do Botão 2 para Vermelho
+button2.setCSS({ color: 'red' });
 
 
 // Ambos os botões tem seus escopos próprios

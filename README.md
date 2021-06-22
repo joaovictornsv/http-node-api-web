@@ -63,7 +63,7 @@ const button = document.getElementById('btn')
 
 
 // ❌ SEM PROTOTYPE
-button.style.backgroundColor = 'blue'
+button.style.color = 'blue'
 
 
 // ✅ COM PROTOTYPE

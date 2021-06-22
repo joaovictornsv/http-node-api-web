@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="100" />
-    <h3>Projeto HTML</h3>
     <h1>
+        Projeto HTML<br>
         100% Javascript
     </h1>
     <h4>
